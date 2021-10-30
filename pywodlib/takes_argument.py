@@ -2,7 +2,7 @@
 
 >>> def simple(foo):
 ...     return foo
-... 
+...
 >>> takes_argument(simple, "foo")
 True
 >>> takes_argument(simple, "bar")
@@ -10,7 +10,7 @@ False
 
 >>> def defaulting(foo=None):
 ...     return foo
-... 
+...
 >>> takes_argument(defaulting, "foo")
 True
 >>> takes_argument(defaulting, "bar")
@@ -18,7 +18,7 @@ False
 
 >>> def kwarged(**kwargs):
 ...     return kwargs
-... 
+...
 >>> takes_argument(kwarged, "foo")
 True
 >>> takes_argument(kwarged, "kwargs")
@@ -26,13 +26,13 @@ True
 
 >>> def arged(*foo):
 ...     return foo
-... 
+...
 >>> takes_argument(arged, "foo")
 False
 
 >>> def pos_kwarg_only(foo, /, bar, *, baz):
 ...     return foo
-... 
+...
 >>> takes_argument(pos_kwarg_only, "foo")
 False
 >>> takes_argument(pos_kwarg_only, "bar")
