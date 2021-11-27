@@ -1,7 +1,8 @@
 import json
 import pytest
+from _pytest.mark import ParameterSet
 
-def iter_test_case_dir(dirpath: Path, inext: str = '.in', outext: str = '.out'):
+def iter_test_case_dir(dirpath: Path, inext: str = '.in', outext: str = '.out') -> Iterable[ParameterSet]:
     for p in sorted(dirpath.glob('*{inext}')):
         with p.open(encoding='utf-8') as fp:
             if inext == '.json':

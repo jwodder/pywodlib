@@ -1,4 +1,5 @@
 def split_after(predicate, iterable):
+    # cf. split_after from more-itertools
     """
     >>> list(split_after(lambda n: n % 2, [2, 4, 1, 6, 8, 3]))
     [[2, 4, 1], [6, 8, 3]]
