@@ -1,5 +1,4 @@
-def strip_suffix(s, suffix):
-    # type: (str, str) -> str
+def strip_suffix(s: str, suffix: str) -> str:
     # cf. str.removesuffix, introduced in Python 3.9
     """
     If ``s`` ends with ``suffix``, return the rest of ``s`` before ``suffix``;

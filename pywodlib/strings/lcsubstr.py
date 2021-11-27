@@ -1,4 +1,4 @@
-def longest_common_substrs(a, b):
+def longest_common_substrs(a: str, b: str) -> str:
     """
     >>> longest_common_substrs('ABABC', 'BABCA')
     ['BABC']

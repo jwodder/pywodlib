@@ -5,8 +5,12 @@ in the original iterables; if they are required to be consecutive, this instead
 becomes the longest common *substring* problem.
 """
 
+from typing import List, Sequence, TypeVar
 
-def _lcs_table(xs: list, ys: list):
+T = TypeVar("T")
+
+
+def _lcs_table(xs: List[T], ys: List[T]) -> List[List[int]]:
     tbl = [[0] * (len(ys) + 1) for _ in range(len(xs) + 1)]
     for i in range(len(xs)):
         for j in range(len(ys)):
@@ -17,7 +21,7 @@ def _lcs_table(xs: list, ys: list):
     return tbl
 
 
-def longest_common_subseq_len(xs, ys):
+def longest_common_subseq_len(xs: Sequence[T], ys: Sequence[T]) -> int:
     """
     >>> longest_common_subseq_len('XMJYAUZ', 'MZJAWXU')
     4
@@ -25,7 +29,7 @@ def longest_common_subseq_len(xs, ys):
     return _lcs_table(list(xs), list(ys))[-1][-1]
 
 
-def longest_common_subseq(xs, ys):
+def longest_common_subseq(xs: Sequence[T], ys: Sequence[T]) -> List[T]:
     """
     >>> longest_common_subseq('XMJYAUZ', 'MZJAWXU')
     ['M', 'J', 'A', 'U']

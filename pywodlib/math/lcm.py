@@ -2,8 +2,7 @@ from math import gcd
 import pytest
 
 
-def lcm(x, y):
-    # type: (int, int) -> int
+def lcm(x: int, y: int) -> int:
     """
     Calculate the least common (positive) multiple of two integers.  Returns
     zero if either argument is zero.

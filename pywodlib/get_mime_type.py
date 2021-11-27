@@ -2,12 +2,11 @@ from mimetypes import guess_type
 import pytest
 
 
-def get_mime_type(filename, strict=False):
-    # type: (str, bool) -> str
+def get_mime_type(filename: str, strict: bool = False) -> str:
     """
     Like `mimetypes.guess_type()`, except that if the file is compressed, the
     MIME type for the compression is returned.  Also, the default return value
-    is now ``'application/octet-stream'`` instead of `None`.
+    is now ``"application/octet-stream"`` instead of `None`.
     """
     mtype, encoding = guess_type(filename, strict)
     if encoding is None:

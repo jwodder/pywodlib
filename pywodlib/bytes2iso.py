@@ -1,4 +1,4 @@
-def bytes2iso(numbytes):
+def bytes2iso(numbytes: int) -> str:
     # cf. the humanize package's naturalsize() function
     """
     >>> bytes2iso(512)

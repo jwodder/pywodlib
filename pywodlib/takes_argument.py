@@ -48,7 +48,7 @@ import inspect
 from typing import Any, Callable
 
 
-def takes_argument(callable_obj: Callable[[...], Any], argname: str) -> bool:
+def takes_argument(callable_obj: Callable[..., Any], argname: str) -> bool:
     sig = inspect.signature(callable_obj)
     for param in sig.parameters.values():
         if (

@@ -2,7 +2,9 @@ import time
 from typing import Iterator, Optional
 
 
-def itersleep(interval, maxtime=None, yield_first=False):
+def itersleep(
+    interval: float, maxtime: Optional[float] = None, yield_first: bool = False
+) -> Iterator[None]:
     if yield_first:
         yield
     if maxtime is None:

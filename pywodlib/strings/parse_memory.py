@@ -1,7 +1,7 @@
 import re
 
 
-def parse_memory(s):
+def parse_memory(s: str) -> int:
     """
     >>> parse_memory('42')
     42
@@ -10,10 +10,10 @@ def parse_memory(s):
     >>> parse_memory('42 MB')
     44040192
     """
-    m = re.match(r"^(\d+)(?:\s*([kMGTPE])B?)?$", s)
+    m = re.fullmatch(r"(\d+)(?:\s*([kMGTPEZY])B?)?", s)
     if not m:
         raise ValueError(s)
-    x = int(m.group(1))
-    if m.group(2) is not None:
-        x <<= 10 * ("kMGTPE".index(m.group(2)) + 1)
+    x = int(m[1])
+    if m[2] is not None:
+        x <<= 10 * ("kMGTPEZY".index(m[2]) + 1)
     return x

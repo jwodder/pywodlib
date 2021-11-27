@@ -1,4 +1,9 @@
-def split_before(predicate, iterable):
+from typing import Any, Callable, Iterable, List, TypeVar
+
+T = TypeVar("T")
+
+
+def split_before(predicate: Callable[[T], Any], iterable: Iterable[T]) -> List[List[T]]:
     # cf. split_before from more-itertools
     """
     >>> list(split_before(lambda n: n % 2, [2, 4, 1, 6, 8, 3]))

@@ -1,4 +1,7 @@
-def find_first_property(p, low, high):
+from typing import Any, Callable
+
+
+def find_first_property(p: Callable[[int], Any], low: int, high: int) -> int:
     """
     Given a range ``(low, high)`` in which there exists an ``x`` such that
     ``not p(i)`` for all ``i`` in ``range(low, x)`` and ``p(i)`` for all ``i``
@@ -25,7 +28,7 @@ def find_first_property(p, low, high):
     raise AssertionError
 
 
-def find_last_property(p, low, high):
+def find_last_property(p: Callable[[int], Any], low: int, high: int) -> int:
     """
     Given a range ``(low, high)`` in which there exists an ``x`` such that
     ``p(i)`` for all ``i`` in ``range(low, x+1)`` and ``not p(i)`` for all
