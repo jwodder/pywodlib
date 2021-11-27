@@ -11,18 +11,19 @@ def find_first_property(p, low, high):
     >>> find_first_property(lambda x: x > 7, 1, 9)
     8
     """
-    l = low
-    h = high
-    while l < h:
-        mid = (l + h) // 2
+    lo = low
+    hi = high
+    while lo < hi:
+        mid = (lo + hi) // 2
         if p(mid):
-            if mid > low and p(mid-1):
-                h = mid
+            if mid > low and p(mid - 1):
+                hi = mid
             else:
                 return mid
         else:
-            l = mid + 1
-    assert False
+            lo = mid + 1
+    raise AssertionError
+
 
 def find_last_property(p, low, high):
     """
@@ -37,15 +38,15 @@ def find_last_property(p, low, high):
     >>> find_last_property(lambda x: x < 7, 6, 16)
     6
     """
-    l = low
-    h = high
-    while l < h:
-        mid = (l + h) // 2
+    lo = low
+    hi = high
+    while lo < hi:
+        mid = (lo + hi) // 2
         if p(mid):
-            if mid+1 < high and p(mid+1):
-                l = mid + 1
+            if mid + 1 < high and p(mid + 1):
+                lo = mid + 1
             else:
                 return mid
         else:
-            h = mid
-    assert False
+            hi = mid
+    raise AssertionError

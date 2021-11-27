@@ -8,18 +8,30 @@
 import importlib
 import pkgutil
 import sys
-from   types   import ModuleType
-from   typing  import Any, Callable, Iterable, Iterator, List, NamedTuple, Optional, Union, cast
+from types import ModuleType
+from typing import (
+    Any,
+    Callable,
+    Iterable,
+    Iterator,
+    List,
+    NamedTuple,
+    Optional,
+    Union,
+    cast,
+)
 
-class ModuleData(NamedTuple):   ### TODO: Come up with a better name
+
+class ModuleData(NamedTuple):  ### TODO: Come up with a better name
     module: ModuleType
     absolute_name: str
-    name: str   ### "relative_name"?  "child_name"?  "module_name"?
+    name: str  ### "relative_name"?  "child_name"?  "module_name"?
     is_pkg: bool
+
 
 def iter_package(
     package: Union[str, ModuleType],
-    path: Optional[List[str]] = None,   ### Should this be "private"?
+    path: Optional[List[str]] = None,  ### Should this be "private"?
     onerror: Optional[Callable[[str], Any]] = None,
 ) -> Iterator[ModuleData]:
     if isinstance(package, str):
@@ -47,9 +59,10 @@ def iter_package(
             setattr(pkg, name, module)
             yield ModuleData(module, m.name, name, m.ispkg)
 
+
 def walk_package(
     package: Union[str, ModuleType],
-    path: Optional[List[str]] = None,   ### Should this be "private"?
+    path: Optional[List[str]] = None,  ### Should this be "private"?
     onerror: Optional[Callable[[str], Any]] = None,
 ) -> Iterator[ModuleData]:
     seen = set()
@@ -67,10 +80,12 @@ def walk_package(
             ### package name?
             yield from walk_package(data.module, newpath, onerror)
 
+
 def import_module_info(m: pkgutil.ModuleInfo, prefix=""):
     ### Should this take a `package` object on which to assign the loaded
     ### module?
-    # cf. <https://docs.python.org/3/library/importlib.html#approximating-importlib-import-module>
+    # cf. <https://docs.python.org/3/library/importlib.html#approximating
+    #      -importlib-import-module>
     name = f"{prefix}{m.name}"
     if name in sys.modules:
         return sys.modules[name]
@@ -79,6 +94,7 @@ def import_module_info(m: pkgutil.ModuleInfo, prefix=""):
     sys.modules[name] = module
     spec.loader.exec_module(module)
     return module
+
 
 def import_module_at_path(module_name, file_path):
     ### Packages have to be loaded by pointing file_path to the __init__.py
@@ -90,6 +106,7 @@ def import_module_at_path(module_name, file_path):
     sys.modules[module_name] = module
     spec.loader.exec_module(module)
     return module
+
 
 ### TODO: Add an "import_module_under_path(module_name, dirpath)" function that
 ### imports the given module whose package root is in dirpath

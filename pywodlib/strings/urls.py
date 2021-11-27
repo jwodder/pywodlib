@@ -4,5 +4,6 @@ def join_urls(base: str, path: str) -> str:
     else:
         return base.rstrip("/") + "/" + path.lstrip("/")
 
+
 def is_http_url(s: str) -> bool:
     return s.lower().startswith(("http://", "https://"))

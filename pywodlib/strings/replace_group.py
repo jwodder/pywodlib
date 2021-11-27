@@ -1,6 +1,7 @@
 import re
 from typing import Callable, Pattern, Union
 
+
 def replace_group(
     rgx: Union[str, Pattern[str]],
     replacer: Callable[[str], str],

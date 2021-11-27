@@ -1,3 +1,6 @@
+from typing import Sequence
+
+
 def tabulate(cells: Sequence[Sequence[str]], gutter_width: int = 2) -> str:
     """
     Show a bare-bones table of values, with no borders or other stylings.
@@ -6,7 +9,7 @@ def tabulate(cells: Sequence[Sequence[str]], gutter_width: int = 2) -> str:
     """
     colwidths = [max(map(len, col)) for col in zip(*cells)]
     lines = [
-        (" " * gutter_width).join(c.ljust(w) for c,w in zip(row, colwidths))
-        for row in fieldgrid
+        (" " * gutter_width).join(c.ljust(w) for c, w in zip(row, colwidths))
+        for row in cells
     ]
     return "\n".join(lines)

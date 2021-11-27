@@ -1,4 +1,6 @@
 import time
+from typing import Iterator, Optional
+
 
 def itersleep(interval, maxtime=None, yield_first=False):
     if yield_first:
@@ -9,7 +11,7 @@ def itersleep(interval, maxtime=None, yield_first=False):
             time.sleep(interval)
             yield
     else:
-        gettime = getattr(time, 'monotonic', time.time)
+        gettime = getattr(time, "monotonic", time.time)
         end_time = gettime() + maxtime
         while True:
             time_left = end_time - gettime()
@@ -19,7 +21,10 @@ def itersleep(interval, maxtime=None, yield_first=False):
             time.sleep(min(interval, time_left))
             yield
 
-def itersleep_exponential(base: float = 2, multiplier: float = 1, qty: Optional[int] = None) -> Iterator[None]:
+
+def itersleep_exponential(
+    base: float = 2, multiplier: float = 1, qty: Optional[int] = None
+) -> Iterator[None]:
     n = 0
     while qty is None or n < qty:
         time.sleep(base ** n * multiplier)

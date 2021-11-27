@@ -45,7 +45,8 @@ False
 """
 
 import inspect
-from   typing import Any, Callable
+from typing import Any, Callable
+
 
 def takes_argument(callable_obj: Callable[[...], Any], argname: str) -> bool:
     sig = inspect.signature(callable_obj)

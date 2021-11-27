@@ -1,9 +1,11 @@
 def dijkstraLength(start, end, neighbors, length):
-    """Returns the length of the shortest path from `start` to `end`.
-       `neighbors` must be a function that takes a vertex and returns an
-       iterable of all of its neighbors.  `length` must be a function that
-       takes two neighboring vertices `x` and `y` and returns the length of the
-       edge from `x` to `y`.  All vertices must be hashable."""
+    """
+    Returns the length of the shortest path from `start` to `end`.  `neighbors`
+    must be a function that takes a vertex and returns an iterable of all of
+    its neighbors.  `length` must be a function that takes two neighboring
+    vertices `x` and `y` and returns the length of the edge from `x` to `y`.
+    All vertices must be hashable.
+    """
     visited = set()
     distances = {start: 0}
     current = start
@@ -21,4 +23,4 @@ def dijkstraLength(start, end, neighbors, length):
         if visitable:
             current = min(visitable, key=lambda p: distances[p])
         else:
-            raise ValueError('No route to endpoint')
+            raise ValueError("No route to endpoint")
