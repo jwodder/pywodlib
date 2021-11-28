@@ -3,6 +3,7 @@ import pytest
 
 
 def lcm(x: int, y: int) -> int:
+    # cf. math.lcm(), introduced in Python 3.9
     """
     Calculate the least common (positive) multiple of two integers.  Returns
     zero if either argument is zero.
