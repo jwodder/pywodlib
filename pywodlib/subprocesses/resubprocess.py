@@ -15,6 +15,7 @@ from inspect import isclass
 import logging
 from multiprocessing import Pipe, Process
 from multiprocessing.connection import Connection
+from signal import SIGINT
 from typing import Any, Callable, Optional, Sequence
 
 __all__ = ["ReSubProcess"]
@@ -67,6 +68,8 @@ class ReSubProcess:
             log.info("Starting subprocess")
             self._start()
         elif not self.process.is_alive():
+            if self.process.exitcode == -SIGINT:
+                raise KeyboardInterrupt("Child process received Cntrl-C")
             log.info("Subprocess is dead; restarting")
             self.process.close()
             self._start()
