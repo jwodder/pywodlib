@@ -13,10 +13,9 @@ def itersleep(
             time.sleep(interval)
             yield
     else:
-        gettime = getattr(time, "monotonic", time.time)
-        end_time = gettime() + maxtime
+        end_time = time.monotonic() + maxtime
         while True:
-            time_left = end_time - gettime()
+            time_left = end_time - time.monotonic()
             if time_left <= 0:
                 return
             ### Subtract the time since the last `yield` from `interval`???
