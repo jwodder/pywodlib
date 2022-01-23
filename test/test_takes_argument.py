@@ -1,26 +1,26 @@
-from typing import Callable
+from typing import Any, Callable
 import pytest
 from pywodlib.takes_argument import takes_argument
 
 
-def simple(foo):
+def simple(foo: Any) -> Any:
     return foo
 
 
-def defaulting(foo=None):
+def defaulting(foo: Any = None) -> Any:
     return foo
 
 
-def kwarged(**kwargs):
+def kwarged(**kwargs: Any) -> dict:
     return kwargs
 
 
-def arged(*foo):
+def arged(*foo: Any) -> tuple:
     return foo
 
 
 # Python 3.8+:
-# def pos_kwarg_only(foo, /, bar, *, baz):
+# def pos_kwarg_only(foo: Any, /, bar: Any, *, baz: Any) -> Any:
 #     return foo
 
 

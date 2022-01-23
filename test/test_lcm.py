@@ -16,5 +16,5 @@ from pywodlib.math.lcm import lcm
         (-6, -4, 12),
     ],
 )
-def test_lcm(x, y, z):
+def test_lcm(x: int, y: int, z: int) -> None:
     assert lcm(x, y) == z

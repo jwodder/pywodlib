@@ -23,5 +23,5 @@ from pywodlib.get_mime_type import get_mime_type
         ("foo.txz", "application/x-xz"),
     ],
 )
-def test_get_mime_type(filename, mtype):
+def test_get_mime_type(filename: str, mtype: str) -> None:
     assert get_mime_type(filename) == mtype

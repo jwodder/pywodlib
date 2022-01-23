@@ -17,3 +17,4 @@ def tmp_home(
     monkeypatch.delenv("XDG_STATE_HOME", raising=False)
     monkeypatch.setenv("USERPROFILE", str(home))
     monkeypatch.setenv("LOCALAPPDATA", str(home))
+    return home

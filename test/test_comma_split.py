@@ -1,3 +1,4 @@
+from typing import List
 import pytest
 from pywodlib.strings.comma_split import comma_split
 
@@ -22,5 +23,5 @@ from pywodlib.strings.comma_split import comma_split
         ("foo,", ["foo"]),
     ],
 )
-def test_comma_split(sin, lout):
+def test_comma_split(sin: str, lout: List[str]) -> None:
     assert comma_split(sin) == lout

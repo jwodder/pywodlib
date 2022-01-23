@@ -7,7 +7,7 @@ def split_before(
     predicate: Callable[[T], Any], iterable: Iterable[T]
 ) -> Iterator[List[T]]:
     # cf. split_before from more-itertools
-    chunk = []
+    chunk: List[T] = []
     for obj in iterable:
         if predicate(obj):
             if chunk:

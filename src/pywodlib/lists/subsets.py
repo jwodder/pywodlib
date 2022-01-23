@@ -6,7 +6,7 @@ T = TypeVar("T")
 
 def subsets(
     xs: Sequence[T], nonempty: bool = False, proper: bool = False
-) -> Iterator[Tuple[T]]:
+) -> Iterator[Tuple[T, ...]]:
     """
     Returns an iterator over all subsets of the iterable ``xs`` as tuples.  If
     ``nonempty`` is true, only nonempty subsets are returned.  If ``proper`` is

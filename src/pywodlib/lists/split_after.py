@@ -8,7 +8,7 @@ def split_after(
 ) -> Iterator[List[T]]:
     # cf. split_after from more-itertools
     empty = True
-    chunk = []
+    chunk: List[T] = []
     for obj in iterable:
         empty = False
         chunk.append(obj)

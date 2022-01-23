@@ -1,6 +1,9 @@
+from typing import Union
+
+
 def bytes2iso(numbytes: int) -> str:
     # cf. the humanize package's naturalsize() function
-    size = numbytes
+    size: Union[int, float] = numbytes
     sizestr = f"{size} B"
     for prefix in "kMGTPEZY":
         if size < 1024:

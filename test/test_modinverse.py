@@ -10,7 +10,7 @@ from pywodlib.math.modinverse import modinverse
         (3, -5, 2),
     ],
 )
-def test_modinverse(a, n, inv):
+def test_modinverse(a: int, n: int, inv: int) -> None:
     assert modinverse(a, n) == inv
 
 
@@ -21,6 +21,6 @@ def test_modinverse(a, n, inv):
         (0, 3),
     ],
 )
-def test_modinverse_error(a, n):
+def test_modinverse_error(a: int, n: int) -> None:
     with pytest.raises(ValueError):
         modinverse(a, n)
