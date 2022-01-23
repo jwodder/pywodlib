@@ -2,14 +2,6 @@ import re
 
 
 def parse_memory(s: str) -> int:
-    """
-    >>> parse_memory('42')
-    42
-    >>> parse_memory('42k')
-    43008
-    >>> parse_memory('42 MB')
-    44040192
-    """
     m = re.fullmatch(r"(\d+)(?:\s*([kMGTPEZY])B?)?", s)
     if not m:
         raise ValueError(s)

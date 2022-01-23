@@ -1,6 +1,3 @@
-import pytest
-
-
 def modinverse(a: int, n: int) -> int:
     """
     ``modinverse(a, n)`` returns the `modular multiplicative inverse`_ of ``a``
@@ -22,27 +19,3 @@ def modinverse(a: int, n: int) -> int:
         return lc % abs(n)
     else:
         raise ValueError(f"{a} has no multiplicative inverse modulo {n}")
-
-
-@pytest.mark.parametrize(
-    "a,n,inv",
-    [
-        (3, 5, 2),
-        (-2, 5, 2),
-        (3, -5, 2),
-    ],
-)
-def test_modinverse(a, n, inv):
-    assert modinverse(a, n) == inv
-
-
-@pytest.mark.parametrize(
-    "a,n",
-    [
-        (2, 6),
-        (0, 3),
-    ],
-)
-def test_modinverse_error(a, n):
-    with pytest.raises(ValueError):
-        modinverse(a, n)
