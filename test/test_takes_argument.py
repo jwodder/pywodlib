@@ -25,7 +25,7 @@ def arged(*foo: Any) -> tuple:
 
 
 @pytest.mark.parametrize(
-    "func,arg,r",
+    "func,argname,r",
     [
         (simple, "foo", True),
         (simple, "bar", False),
