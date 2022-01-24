@@ -71,12 +71,12 @@ class ReSubProcess:
 
     def _ensure(self) -> None:
         if self.process is None:
-            log.info("Starting subprocess")
+            log.debug("Starting subprocess")
             self._start()
         elif not self.process.is_alive():
             if self.process.exitcode == -SIGINT:
                 raise KeyboardInterrupt("Child process received Cntrl-C")
-            log.info("Subprocess is dead; restarting")
+            log.debug("Subprocess is dead; restarting")
             self.process.close()
             self._start()
 
