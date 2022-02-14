@@ -42,7 +42,7 @@ class AbstractJobQueue(ABC, Generic[T]):
     def _get(self) -> T:
         ...
 
-    def __iter__(self) -> Iterable[ContextManager[T]]:
+    def __iter__(self) -> Iterator[ContextManager[T]]:
         while True:
             with self._lock:
                 while True:
