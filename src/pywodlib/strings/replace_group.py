@@ -8,6 +8,7 @@ def replace_group(
     s: str,
     group: Union[int, str] = 1,
 ) -> str:
-    if m := re.search(rgx, s):
+    m = re.search(rgx, s)
+    if m:
         s = s[: m.start(group)] + replacer(m[group]) + s[m.end(group) :]
     return s
