@@ -3,7 +3,7 @@
 ### TODO: Add `cache=True` (or `sys_modules=True`?) arguments to the functions
 ### to control whether `sys.modules` is used
 
-### cf. <https://git.io/Jc5NH>
+### cf. <https://github.com/pytest-dev/pytest/blob/3c45175/src/_pytest/pathlib.py#L492-L508>
 
 import importlib
 import pkgutil
