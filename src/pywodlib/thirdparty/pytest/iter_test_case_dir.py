@@ -1,13 +1,13 @@
 import json
 from pathlib import Path
-from typing import Iterable
+from typing import Iterator
 from _pytest.mark import ParameterSet
 import pytest
 
 
 def iter_test_case_dir(
     dirpath: Path, inext: str = ".in", outext: str = ".out"
-) -> Iterable[ParameterSet]:
+) -> Iterator[ParameterSet]:
     for p in sorted(dirpath.glob("*{inext}")):
         with p.open(encoding="utf-8") as fp:
             if inext == ".json":
