@@ -1,7 +1,4 @@
-from numbers import Number
-
-
-def signum(x: Number) -> Number:
+def signum(x):  # type: ignore
     """
     Returns the sign of ``x``: 1 if positive, -1 if negative, 0 if zero.  For
     complex numbers, returns the number with the same phase angle and magnitude
