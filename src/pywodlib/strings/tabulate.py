@@ -1,4 +1,5 @@
-from typing import Sequence
+from __future__ import annotations
+from collections.abc import Sequence
 
 
 def tabulate(cells: Sequence[Sequence[str]], gutter_width: int = 2) -> str:

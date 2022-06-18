@@ -1,6 +1,7 @@
+from __future__ import annotations
+from collections.abc import Iterator
 import os
 from pathlib import Path
-from typing import Iterator
 from interleave import interleave
 from pywodlib.jobqueue import JobStack
 

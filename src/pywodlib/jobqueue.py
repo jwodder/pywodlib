@@ -19,11 +19,13 @@ Sample usage by a worker:
 Based on <https://gist.github.com/jart/0a71cde3ca7261f77080a3625a21672b>
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
 from collections import deque
-from contextlib import contextmanager
+from collections.abc import Iterable, Iterator
+from contextlib import AbstractContextManager, contextmanager
 from threading import Condition, Lock
-from typing import ContextManager, Deque, Generic, Iterable, Iterator, Optional, TypeVar
+from typing import Generic, Optional, TypeVar
 
 T = TypeVar("T")
 
@@ -32,7 +34,7 @@ class AbstractJobQueue(ABC, Generic[T]):
     def __init__(self, iterable: Optional[Iterable[T]] = None) -> None:
         self._lock = Lock()
         self._cond = Condition(self._lock)
-        self._queue: Deque[T] = deque()
+        self._queue: deque[T] = deque()
         self._tasks = 0
         if iterable is not None:
             self._queue.extend(iterable)
@@ -42,7 +44,7 @@ class AbstractJobQueue(ABC, Generic[T]):
     def _get(self) -> T:
         ...
 
-    def __iter__(self) -> Iterator[ContextManager[T]]:
+    def __iter__(self) -> Iterator[AbstractContextManager[T]]:
         while True:
             with self._lock:
                 while True:

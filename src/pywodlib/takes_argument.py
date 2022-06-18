@@ -1,5 +1,6 @@
+from __future__ import annotations
+from collections.abc import Callable
 import inspect
-from typing import Callable
 
 
 def takes_argument(callable_obj: Callable, argname: str) -> bool:

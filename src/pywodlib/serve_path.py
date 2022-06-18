@@ -1,15 +1,14 @@
+from __future__ import annotations
+from collections.abc import Iterator
 from contextlib import contextmanager
 from functools import partial
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 from threading import Thread
-from typing import Iterator, Union
 
 
 @contextmanager
-def serve_path(
-    dirpath: Union[str, Path], bind_address: str = "127.0.0.1"
-) -> Iterator[str]:
+def serve_path(dirpath: str | Path, bind_address: str = "127.0.0.1") -> Iterator[str]:
     with HTTPServer(
         (bind_address, 0), partial(SimpleHTTPRequestHandler, directory=dirpath)
     ) as httpd:

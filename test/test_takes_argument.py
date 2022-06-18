@@ -1,4 +1,6 @@
-from typing import Any, Callable
+from __future__ import annotations
+from collections.abc import Callable
+from typing import Any
 import pytest
 from pywodlib.takes_argument import takes_argument
 

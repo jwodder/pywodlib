@@ -1,12 +1,13 @@
+from __future__ import annotations
+from collections import Callable
 import re
-from typing import Callable, Pattern, Union
 
 
 def replace_group(
-    rgx: Union[str, Pattern[str]],
+    rgx: str | re.Pattern[str],
     replacer: Callable[[str], str],
     s: str,
-    group: Union[int, str] = 1,
+    group: int | str = 1,
 ) -> str:
     m = re.search(rgx, s)
     if m:

@@ -1,4 +1,5 @@
-from typing import Iterable, Iterator
+from __future__ import annotations
+from collections.abc import Iterable, Iterator
 
 
 def yield_lines(fp: Iterable[str]) -> Iterator[str]:

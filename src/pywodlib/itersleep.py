@@ -1,5 +1,7 @@
+from __future__ import annotations
+from collections.abc import Iterator
 import time
-from typing import Iterator, Optional
+from typing import Optional
 
 
 def itersleep(
@@ -29,6 +31,6 @@ def itersleep_exponential(
     # cf. `exp_wait()`
     n = 0
     while qty is None or n < qty:
-        time.sleep(base ** n * multiplier)
+        time.sleep(base**n * multiplier)
         yield
         n += 1

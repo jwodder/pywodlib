@@ -1,12 +1,14 @@
+from __future__ import annotations
+from collections.abc import Iterator, Sequence
 from itertools import compress
-from typing import Iterator, Sequence, Tuple, TypeVar
+from typing import TypeVar
 
 T = TypeVar("T")
 
 
 def subsets(
     xs: Sequence[T], nonempty: bool = False, proper: bool = False
-) -> Iterator[Tuple[T, ...]]:
+) -> Iterator[tuple[T, ...]]:
     """
     Returns an iterator over all subsets of the iterable ``xs`` as tuples.  If
     ``nonempty`` is true, only nonempty subsets are returned.  If ``proper`` is

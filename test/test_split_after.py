@@ -1,4 +1,6 @@
-from typing import Any, Callable, List
+from __future__ import annotations
+from collections.abc import Callable
+from typing import Any
 import pytest
 from pywodlib.lists.split_after import split_after
 
@@ -17,6 +19,6 @@ from pywodlib.lists.split_after import split_after
     ],
 )
 def test_split_after(
-    pred: Callable[[int], Any], xs: List[int], split: List[List[int]]
+    pred: Callable[[int], Any], xs: list[int], split: list[list[int]]
 ) -> None:
     assert list(split_after(pred, xs)) == split

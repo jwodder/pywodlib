@@ -1,6 +1,7 @@
+from __future__ import annotations
+from collections.abc import Iterator
 import json
 from pathlib import Path
-from typing import Iterator
 from _pytest.mark import ParameterSet
 import pytest
 

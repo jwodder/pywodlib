@@ -3,26 +3,21 @@
 ### TODO: Add `cache=True` (or `sys_modules=True`?) arguments to the functions
 ### to control whether `sys.modules` is used
 
-### cf. <https://github.com/pytest-dev/pytest/blob/3c45175/src/_pytest/pathlib.py#L492-L508>
+### cf. <https://github.com/pytest-dev/pytest/blob/3c45175/src/_pytest/
+###      pathlib.py#L492-L508>
 
+from __future__ import annotations
+from collections.abc import Callable, Iterable, Iterator
+from dataclasses import dataclass
 import importlib
 import pkgutil
 import sys
 from types import ModuleType
-from typing import (
-    Any,
-    Callable,
-    Iterable,
-    Iterator,
-    List,
-    NamedTuple,
-    Optional,
-    Union,
-    cast,
-)
+from typing import Any, Optional, cast
 
 
-class ModuleData(NamedTuple):  ### TODO: Come up with a better name
+@dataclass
+class ModuleData:  ### TODO: Come up with a better name
     module: ModuleType
     absolute_name: str
     name: str  ### "relative_name"?  "child_name"?  "module_name"?
@@ -30,8 +25,8 @@ class ModuleData(NamedTuple):  ### TODO: Come up with a better name
 
 
 def iter_package(
-    package: Union[str, ModuleType],
-    path: Optional[List[str]] = None,  ### Should this be "private"?
+    package: str | ModuleType,
+    path: Optional[list[str]] = None,  ### Should this be "private"?
     onerror: Optional[Callable[[str], Any]] = None,
 ) -> Iterator[ModuleData]:
     if isinstance(package, str):
@@ -61,8 +56,8 @@ def iter_package(
 
 
 def walk_package(
-    package: Union[str, ModuleType],
-    path: Optional[List[str]] = None,  ### Should this be "private"?
+    package: str | ModuleType,
+    path: Optional[list[str]] = None,  ### Should this be "private"?
     onerror: Optional[Callable[[str], Any]] = None,
 ) -> Iterator[ModuleData]:
     seen = set()

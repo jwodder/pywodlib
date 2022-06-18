@@ -1,4 +1,6 @@
-from typing import Any, Callable
+from __future__ import annotations
+from collections.abc import Callable
+from typing import Any
 
 
 def find_first_property(p: Callable[[int], Any], low: int, high: int) -> int:

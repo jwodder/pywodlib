@@ -1,14 +1,15 @@
+from __future__ import annotations
 import logging
 from pathlib import Path
 import shlex
 import subprocess
 import sys
-from typing import Any, Union
+from typing import Any
 
 log = logging.getLogger(__name__)
 
 
-def runcmd(*args: Union[str, Path], **kwargs: Any) -> subprocess.CompletedProcess:
+def runcmd(*args: str | Path, **kwargs: Any) -> subprocess.CompletedProcess:
     argstrs = [str(a) for a in args]
     log.debug("Running: %s", " ".join(map(shlex.quote, argstrs)))
     r = subprocess.run(argstrs, **kwargs)
@@ -17,7 +18,7 @@ def runcmd(*args: Union[str, Path], **kwargs: Any) -> subprocess.CompletedProces
     return r
 
 
-def readcmd(*args: Union[str, Path], **kwargs: Any) -> str:
+def readcmd(*args: str | Path, **kwargs: Any) -> str:
     kwargs["stdout"] = subprocess.PIPE
     kwargs["universal_newlines"] = True
     r = runcmd(*args, **kwargs)

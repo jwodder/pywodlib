@@ -1,4 +1,6 @@
-from typing import Iterator, Optional
+from __future__ import annotations
+from collections.abc import Iterator
+from typing import Optional
 
 
 def exp_wait(
@@ -19,5 +21,5 @@ def exp_wait(
     """
     n = 0
     while attempts is None or n < attempts:
-        yield base ** n * multiplier
+        yield base**n * multiplier
         n += 1

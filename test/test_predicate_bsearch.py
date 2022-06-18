@@ -1,4 +1,6 @@
-from typing import Any, Callable
+from __future__ import annotations
+from collections.abc import Callable
+from typing import Any
 import pytest
 from pywodlib.predicate_bsearch import find_first_property, find_last_property
 

@@ -1,9 +1,11 @@
-from typing import List, Sequence, TypeVar
+from __future__ import annotations
+from collections.abc import Sequence
+from typing import TypeVar
 
 T = TypeVar("T")
 
 
-def fragment(xs: Sequence[T], n: int) -> List[List[T]]:
+def fragment(xs: Sequence[T], n: int) -> list[list[T]]:
     # cf. chunked from more-itertools
     if n < 1:
         raise ValueError("n must be at least 1")
