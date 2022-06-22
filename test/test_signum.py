@@ -1,4 +1,4 @@
-from numbers import Number
+from __future__ import annotations
 import pytest
 from pywodlib.math.signum import signum
 
@@ -14,5 +14,5 @@ from pywodlib.math.signum import signum
         (3 + 4j, 0.6 + 0.8j),
     ],
 )
-def test_signum(num: Number, sign: Number) -> None:
+def test_signum(num: float | complex, sign: float | complex) -> None:
     assert signum(num) == sign

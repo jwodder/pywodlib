@@ -1,4 +1,9 @@
-def signum(x):  # type: ignore
+from typing import TypeVar
+
+T = TypeVar("T", float, complex)
+
+
+def signum(x: T) -> T:
     """
     Returns the sign of ``x``: 1 if positive, -1 if negative, 0 if zero.  For
     complex numbers, returns the number with the same phase angle and magnitude
