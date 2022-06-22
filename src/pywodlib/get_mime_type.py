@@ -17,4 +17,4 @@ def get_mime_type(filename: str, strict: bool = False) -> str:
         # 8460; exactly when can that be used?
         # return mtype + '+gzip'
     else:
-        return "application/x-" + encoding
+        return f"application/x-{encoding}"
