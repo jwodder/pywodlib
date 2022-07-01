@@ -1,9 +1,9 @@
+from __future__ import annotations
 import os
 from pathlib import Path
-from typing import Union
 
 
-def under_path(p1: Union[str, os.PathLike], p2: Union[str, os.PathLike]) -> bool:
+def under_path(p1: str | os.PathLike[str], p2: str | os.PathLike[str]) -> bool:
     """
     Returns true iff ``p1`` (which must exist) is a path at or under the
     directory hierarchy at ``p2`` (which may or may not exist), without
