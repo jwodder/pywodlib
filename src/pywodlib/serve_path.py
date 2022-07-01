@@ -9,6 +9,11 @@ from threading import Thread
 
 @contextmanager
 def serve_path(dirpath: str | Path, bind_address: str = "127.0.0.1") -> Iterator[str]:
+    """
+    Returns a context manager that serves the contents of the directory
+    ``dirpath`` over HTTP at ``bind_address`` and a random port.  On entry, the
+    context manager returns the URL at which the directory is being served.
+    """
     with HTTPServer(
         (bind_address, 0), partial(SimpleHTTPRequestHandler, directory=dirpath)
     ) as httpd:

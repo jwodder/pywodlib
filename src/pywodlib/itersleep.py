@@ -11,7 +11,7 @@ def itersleep(
         yield
     if maxtime is None:
         while True:
-            ### Subtract the time since the last `yield` from `interval`???
+            # TODO: Subtract the time since the last `yield` from `interval`???
             time.sleep(interval)
             yield
     else:
@@ -20,7 +20,7 @@ def itersleep(
             time_left = end_time - time.monotonic()
             if time_left <= 0:
                 return
-            ### Subtract the time since the last `yield` from `interval`???
+            # TODO: Subtract the time since the last `yield` from `interval`???
             time.sleep(min(interval, time_left))
             yield
 

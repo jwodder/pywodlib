@@ -4,6 +4,10 @@ import inspect
 
 
 def takes_argument(callable_obj: Callable, argname: str) -> bool:
+    """
+    Returns true iff ``callable_obj`` can be passed an argument named
+    ``argname`` by keyword
+    """
     sig = inspect.signature(callable_obj)
     for param in sig.parameters.values():
         if (

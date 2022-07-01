@@ -3,6 +3,12 @@ from pathlib import Path
 
 
 def assert_dirtrees_eq(tree1: Path, tree2: Path) -> None:
+    """
+    Assert that the directory hierarchies at ``tree1`` and ``tree2`` have the
+    same files with the same contents.
+
+    For use in writing pytest tests.
+    """
     assert sorted(map(attrgetter("name"), tree1.iterdir())) == sorted(
         map(attrgetter("name"), tree2.iterdir())
     )

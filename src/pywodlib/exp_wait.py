@@ -13,10 +13,10 @@ def exp_wait(
     Returns a generator of values usable as `sleep()` times when retrying
     something with exponential backoff.
 
-    :param float base:
+    :param float base: the base value for exponentiation
     :param float multiplier: value to multiply values by after exponentiation
-    :param Optional[int] attempts: how many values to yield; set to `None` to
-        yield forever
+    :param Optional[int] attempts:
+        how many values to yield; set to `None` to yield forever
     :rtype: Iterator[float]
     """
     n = 0

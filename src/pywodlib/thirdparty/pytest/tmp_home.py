@@ -6,6 +6,10 @@ import pytest
 def tmp_home(
     monkeypatch: pytest.MonkeyPatch, tmp_path_factory: pytest.TempPathFactory
 ) -> Path:
+    """
+    A fixture that sets :envvar:`HOME` to a temporary path and returns that
+    path
+    """
     home = tmp_path_factory.mktemp("tmp_home")
     monkeypatch.setenv("HOME", str(home))
     monkeypatch.delenv("XDG_CACHE_HOME", raising=False)

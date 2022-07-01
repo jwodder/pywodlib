@@ -6,7 +6,8 @@ def tabulate(cells: Sequence[Sequence[str]], gutter_width: int = 2) -> str:
     """
     Show a bare-bones table of values, with no borders or other stylings.
 
-    All rows in ``cells`` must be the same length.
+    ``cells`` is a sequence of rows, each one a sequence of columns.  All rows
+    in ``cells`` must be the same length.
     """
     colwidths = [max(map(len, col)) for col in zip(*cells)]
     lines = [

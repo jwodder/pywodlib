@@ -20,7 +20,7 @@ def find_first_property(p: Callable[[int], Any], low: int, high: int) -> int:
                 return mid
         else:
             lo = mid + 1
-    raise AssertionError
+    raise ValueError("Precondition violated")
 
 
 def find_last_property(p: Callable[[int], Any], low: int, high: int) -> int:
@@ -40,4 +40,4 @@ def find_last_property(p: Callable[[int], Any], low: int, high: int) -> int:
                 return mid
         else:
             hi = mid
-    raise AssertionError
+    raise ValueError("Precondition violated")
