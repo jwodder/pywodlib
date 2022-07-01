@@ -8,7 +8,6 @@ def exp_wait(
     multiplier: float = 1,
     attempts: Optional[int] = None,
 ) -> Iterator[float]:
-    # cf. `itersleep_exponential()`
     """
     Returns a generator of values usable as `sleep()` times when retrying
     something with exponential backoff.

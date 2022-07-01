@@ -23,14 +23,3 @@ def itersleep(
             # TODO: Subtract the time since the last `yield` from `interval`???
             time.sleep(min(interval, time_left))
             yield
-
-
-def itersleep_exponential(
-    base: float = 2, multiplier: float = 1, qty: Optional[int] = None
-) -> Iterator[None]:
-    # cf. `exp_wait()`
-    n = 0
-    while qty is None or n < qty:
-        time.sleep(base**n * multiplier)
-        yield
-        n += 1
