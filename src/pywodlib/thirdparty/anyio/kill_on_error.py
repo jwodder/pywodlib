@@ -8,7 +8,6 @@ import anyio
 async def kill_on_error(
     p: anyio.abc.Process, timeout: float = 5
 ) -> AsyncIterator[anyio.abc.Process]:
-
     """
     When used like so::
 
@@ -16,9 +15,9 @@ async def kill_on_error(
             ...
 
     then the subprocess ``p``, in addition to being waited for on normal
-    context manager exit, will be terminated if an error occurs in the body of
-    the ``async with:`` block; if it doesn't exit after ``timeout`` seconds, it
-    will instead be killed.
+    context manager exit, will be terminated if an error (including
+    cancellation) occurs in the body of the ``async with:`` block; if it
+    doesn't exit after ``timeout`` seconds, it will instead be killed.
     """
 
     async with p:
