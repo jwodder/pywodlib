@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 def comma_split(s: str) -> list[str]:
     """
     Split apart a string on commas, discarding leading & trailing whitespace
