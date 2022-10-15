@@ -17,7 +17,7 @@ def runcmd(*args: str | Path, **kwargs: Any) -> subprocess.CompletedProcess:
 
 def readcmd(*args: str | Path, **kwargs: Any) -> str:
     kwargs["stdout"] = subprocess.PIPE
-    kwargs["universal_newlines"] = True
+    kwargs["text"] = True
     r = runcmd(*args, **kwargs)
     assert isinstance(r.stdout, str)
     return r.stdout.strip()
