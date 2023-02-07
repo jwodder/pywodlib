@@ -21,6 +21,7 @@ def serve_path(dirpath: str | Path, bind_address: str = "127.0.0.1") -> Iterator
         t.start()
         try:
             server_name, *_ = httpd.server_address
+            assert isinstance(server_name, str)
             # `httpd.server_name` is run through `socket.getfqdn()`, which (on
             # Python 3.9 on macOS, at least) converts IP addresses to .arpa
             # addresses, which don't work with requests, so we can't use that.
