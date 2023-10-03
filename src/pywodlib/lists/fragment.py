@@ -7,6 +7,7 @@ T = TypeVar("T")
 
 def fragment(xs: Sequence[T], n: int) -> list[list[T]]:
     # cf. chunked from more-itertools
+    # cf. itertools.batched() in Python 3.12+
     """
     Split a sequence into subsequences of length ``n`` (except possibly the
     last subsequence)
