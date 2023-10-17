@@ -21,6 +21,7 @@ import logging
 from multiprocessing import Pipe, Process
 from multiprocessing.connection import Connection
 from signal import SIGINT
+from types import TracebackType
 from typing import Any, Optional
 
 __all__ = ["ReSubProcess"]
@@ -40,7 +41,12 @@ class ReSubProcess:
     def __enter__(self) -> ReSubProcess:
         return self
 
-    def __exit__(self, *_exc: Any) -> None:
+    def __exit__(
+        self,
+        _exc_type: type[BaseException] | None,
+        _exc_val: BaseException | None,
+        _exc_tb: TracebackType | None,
+    ) -> None:
         self.close()
 
     def __call__(self, *args: Any, **kwargs: Any) -> Any:

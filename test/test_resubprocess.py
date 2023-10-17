@@ -1,6 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import Any
+from types import TracebackType
 from psutil import Process
 from pywodlib.subprocesses.resubprocess import ReSubProcess
 
@@ -13,7 +13,12 @@ class FlakyDoubler:
     def __enter__(self) -> FlakyDoubler:
         return self
 
-    def __exit__(self, *_exc: Any) -> None:
+    def __exit__(
+        self,
+        _exc_type: type[BaseException] | None,
+        _exc_val: BaseException | None,
+        _exc_tb: TracebackType | None,
+    ) -> None:
         return None
 
     def __call__(self, x: int) -> int:
