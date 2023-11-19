@@ -37,12 +37,12 @@ dependencies = []
 
 [project.optional-dependencies]
 all = [
-    "anyio ~= 3.6",
+    "anyio ~= 4.0",
     "linesep ~= 0.4",
     "click >= 8.0",
     "pytest >= 6.0",
 ]
-anyio = ["anyio ~= 3.6", "linesep ~= 0.4"]
+anyio = ["anyio ~= 4.0", "linesep ~= 0.4"]
 click = ["click >= 8.0"]
 pytest = ["pytest >= 6.0"]
 
