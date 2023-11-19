@@ -15,6 +15,9 @@
     :target: https://opensource.org/licenses/MIT
     :alt: MIT License
 
+`GitHub <https://github.com/jwodder/pywodlib>`_
+| `Issues <https://github.com/jwodder/pywodlib/issues>`_
+
 ``pywodlib`` is a personal Python package containing various useful (and often
 reused) functions & classes that aren't quite worthy of packages of their own.
 It is not meant to be installed; instead, if you see anything you like in it,
