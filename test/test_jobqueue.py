@@ -35,7 +35,7 @@ def test_jobstack_threaded_iterpath(tmp_path: Path) -> None:
             with ctx as dirpath:
                 for p in dirpath.iterdir():
                     if p.is_dir():
-                        jobqueue.put(p)
+                        jobqueue.put(p)  # noqa: B038
                     else:
                         yield p
 
