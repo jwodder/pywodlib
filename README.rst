@@ -1,17 +1,19 @@
-.. image:: https://www.repostatus.org/badges/latest/concept.svg
+|repostatus| |ci-status| |coverage| |license|
+
+.. |repostatus| image:: https://www.repostatus.org/badges/latest/concept.svg
     :target: https://www.repostatus.org/#concept
     :alt: Project Status: Concept – Minimal or no implementation has been done
           yet, or the repository is only intended to be a limited example,
           demo, or proof-of-concept.
 
-.. image:: https://github.com/jwodder/pywodlib/actions/workflows/test.yml/badge.svg
+.. |ci-status| image:: https://github.com/jwodder/pywodlib/actions/workflows/test.yml/badge.svg
     :target: https://github.com/jwodder/pywodlib/actions/workflows/test.yml
     :alt: CI Status
 
-.. image:: https://codecov.io/gh/jwodder/pywodlib/branch/master/graph/badge.svg
+.. |coverage| image:: https://codecov.io/gh/jwodder/pywodlib/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/jwodder/pywodlib
 
-.. image:: https://img.shields.io/github/license/jwodder/pywodlib.svg
+.. |license| image:: https://img.shields.io/github/license/jwodder/pywodlib.svg
     :target: https://opensource.org/licenses/MIT
     :alt: MIT License
 
