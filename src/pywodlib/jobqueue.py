@@ -41,8 +41,7 @@ class AbstractJobQueue(ABC, Generic[T]):
             self._jobs += len(self._queue)
 
     @abstractmethod
-    def _get(self) -> T:
-        ...
+    def _get(self) -> T: ...
 
     def __iter__(self) -> Iterator[AbstractContextManager[T]]:
         while True:
