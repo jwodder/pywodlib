@@ -15,7 +15,7 @@ def serve_path(dirpath: str | Path, bind_address: str = "127.0.0.1") -> Iterator
     context manager returns the URL at which the directory is being served.
     """
     with HTTPServer(
-        (bind_address, 0), partial(SimpleHTTPRequestHandler, directory=dirpath)
+        (bind_address, 0), partial(SimpleHTTPRequestHandler, directory=str(dirpath))
     ) as httpd:
         t = Thread(target=httpd.serve_forever)
         t.start()
