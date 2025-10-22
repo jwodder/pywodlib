@@ -35,5 +35,7 @@ class EnumSet(click.ParamType, Generic[E]):
                 self.fail(f"{value!r}: invalid item {v!r}", param, ctx)
         return selected
 
-    def get_metavar(self, _param: click.Parameter) -> str:
+    def get_metavar(
+        self, param: click.Parameter, ctx: click.Context | None = None  # noqa: U100
+    ) -> str:
         return "[" + ",".join(v.value for v in self.klass) + "]"
