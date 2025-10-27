@@ -1,1 +1,1 @@
-""" Functions for working with subprocesses """
+"""Functions for working with subprocesses"""

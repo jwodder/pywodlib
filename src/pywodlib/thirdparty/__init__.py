@@ -1,1 +1,1 @@
-""" Functions for working with third-party libraries """
+"""Functions for working with third-party libraries"""

@@ -8,7 +8,7 @@ for chunk in [
     b" text.\nThis is a",
     b" very, very, very",
     b" (well, not really)",
-    b" long line.\r\nThis line ends in a CR.\r\xC2\xA1Weird!",
+    b" long line.\r\nThis line ends in a CR.\r\xc2\xa1Weird!",
 ]:
     stdout.write(chunk)
     stdout.flush()

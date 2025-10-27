@@ -1,1 +1,1 @@
-""" Functions for working with strings & text """
+"""Functions for working with strings & text"""

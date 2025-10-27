@@ -1,1 +1,1 @@
-""" Functions for working with lists, sequences, and iterables """
+"""Functions for working with lists, sequences, and iterables"""

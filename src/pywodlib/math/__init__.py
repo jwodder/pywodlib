@@ -1,1 +1,1 @@
-""" Mathematical functions """
+"""Mathematical functions"""
