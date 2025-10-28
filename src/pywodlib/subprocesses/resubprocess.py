@@ -22,7 +22,7 @@ from multiprocessing import Pipe, Process
 from multiprocessing.connection import Connection
 from signal import SIGINT
 from types import TracebackType
-from typing import Any, Optional
+from typing import Any
 
 __all__ = ["ReSubProcess"]
 
@@ -34,9 +34,9 @@ class ReSubProcess:
     target: Any
     args: Sequence = ()
     kwargs: dict = field(default_factory=dict)
-    max_tries: Optional[int] = None
-    process: Optional[Process] = field(init=False, default=None)
-    pipe: Optional[Connection] = field(init=False, default=None)
+    max_tries: int | None = None
+    process: Process | None = field(init=False, default=None)
+    pipe: Connection | None = field(init=False, default=None)
 
     def __enter__(self) -> ReSubProcess:
         return self

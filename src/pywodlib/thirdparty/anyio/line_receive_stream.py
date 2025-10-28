@@ -1,6 +1,6 @@
 from __future__ import annotations
 from collections.abc import Callable, Mapping
-from typing import Any, Optional
+from typing import Any
 from anyio import EndOfStream
 from anyio.abc import ObjectReceiveStream
 from linesep import SplitterEmptyError, get_newline_splitter
@@ -15,7 +15,7 @@ class LineReceiveStream(ObjectReceiveStream[str]):
     """
 
     def __init__(
-        self, transport_stream: ObjectReceiveStream[str], newline: Optional[str] = None
+        self, transport_stream: ObjectReceiveStream[str], newline: str | None = None
     ) -> None:
         """
         :param transport_stream: any `str`-based receive stream

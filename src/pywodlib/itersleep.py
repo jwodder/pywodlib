@@ -1,11 +1,10 @@
 from __future__ import annotations
 from collections.abc import Iterator
 import time
-from typing import Optional
 
 
 def itersleep(
-    interval: float, maxtime: Optional[float] = None, yield_first: bool = False
+    interval: float, maxtime: float | None = None, yield_first: bool = False
 ) -> Iterator[None]:
     if yield_first:
         yield
