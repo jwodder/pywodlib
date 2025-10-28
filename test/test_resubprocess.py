@@ -35,7 +35,12 @@ def test_resubprocess() -> None:
     # Python's multiprocessing spawns a special "resource_tracker" process for
     # cleaning up pipes etc., so we need to not count it when checking that all
     # children created by ReSubProcess are gone.
+    #
+    # We also need to ignore any "forkserver" processes spawned due to using
+    # the "forkserver" start method (default starting in Python 3.14).
     subcmds = [p.cmdline() for p in Process().children()]
     assert [
-        cl for cl in subcmds if not any("resource_tracker" in arg for arg in cl)
+        cl
+        for cl in subcmds
+        if not any("resource_tracker" in arg or "forkserver" in arg for arg in cl)
     ] == []

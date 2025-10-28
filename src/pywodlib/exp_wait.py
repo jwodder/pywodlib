@@ -1,12 +1,11 @@
 from __future__ import annotations
 from collections.abc import Iterator
-from typing import Optional
 
 
 def exp_wait(
     base: float = 1.25,
     multiplier: float = 1,
-    attempts: Optional[int] = None,
+    attempts: int | None = None,
 ) -> Iterator[float]:
     """
     Returns a generator of values usable as `sleep()` times when retrying

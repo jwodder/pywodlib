@@ -1,7 +1,4 @@
-from typing import Optional
-
-
-def quantify(qty: int, singular: str, plural: Optional[str] = None) -> str:
+def quantify(qty: int, singular: str, plural: str | None = None) -> str:
     # cf. the humanfriendly package's pluralize() function
     if qty == 1:
         return f"{qty} {singular}"

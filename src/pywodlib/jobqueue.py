@@ -25,13 +25,13 @@ from collections import deque
 from collections.abc import Iterable, Iterator
 from contextlib import AbstractContextManager, contextmanager
 from threading import Condition, Lock
-from typing import Generic, Optional, TypeVar
+from typing import Generic, TypeVar
 
 T = TypeVar("T")
 
 
 class AbstractJobQueue(ABC, Generic[T]):
-    def __init__(self, iterable: Optional[Iterable[T]] = None) -> None:
+    def __init__(self, iterable: Iterable[T] | None = None) -> None:
         self._lock = Lock()
         self._cond = Condition(self._lock)
         self._queue: deque[T] = deque()

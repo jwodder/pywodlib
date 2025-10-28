@@ -20,9 +20,10 @@ DATA_DIR = Path(__file__).with_name("data")
     ],
 )
 def test_serve_path(bind_address: str) -> None:
-    with serve_path(
-        DATA_DIR, bind_address=bind_address
-    ) as base_url, requests.Session() as s:
+    with (
+        serve_path(DATA_DIR, bind_address=bind_address) as base_url,
+        requests.Session() as s,
+    ):
         for p in DATA_DIR.iterdir():
             r = s.get(f"{base_url}/{p.name}")
             r.raise_for_status()
