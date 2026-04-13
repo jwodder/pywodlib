@@ -38,11 +38,11 @@ dependencies = []
 all = [
     "anyio ~= 4.0",
     "linesep ~= 0.4",
-    "click >= 8.0",
+    "click >= 8.3.2",
     "pytest >= 6.0",
 ]
 anyio = ["anyio ~= 4.0", "linesep ~= 0.4"]
-click = ["click >= 8.0"]
+click = ["click >= 8.3.2"]
 pytest = ["pytest >= 6.0"]
 
 [project.urls]
